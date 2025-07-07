@@ -42,6 +42,26 @@ const consoleExtensions: EncodedExtension[] = [
       model: inferenceServiceGvk,
     },
   },
+  {
+    type: 'console.resource/details-item',
+    properties: {
+      model: inferenceServiceGvk,
+      id: 'isvc-deploy-mode',
+      column: 'right',
+      title: '%plugin__console-plugin-template~Deployment mode%',
+      path: 'status.deploymentMode',
+    },
+  },
+  {
+    type: 'console.resource/details-item',
+    properties: {
+      model: inferenceServiceGvk,
+      id: 'isvc-model-uri',
+      column: 'right',
+      title: '%plugin__console-plugin-template~Model URI%',
+      path: 'spec.predictor.model.storageUri',
+    },
+  },
 ];
 
 export default consoleExtensions;
