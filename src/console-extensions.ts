@@ -1,5 +1,17 @@
 import { EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
 
+const servingRuntimeGvk = {
+  group: 'serving.kserve.io',
+  version: 'v1alpha1',
+  kind: 'ServingRuntime',
+};
+
+const inferenceServiceGvk = {
+  group: 'serving.kserve.io',
+  version: 'v1beta1',
+  kind: 'InferenceService',
+};
+
 const consoleExtensions: EncodedExtension[] = [
   {
     type: 'console.navigation/section',
@@ -17,11 +29,17 @@ const consoleExtensions: EncodedExtension[] = [
       name: '%plugin__console-plugin-template~Serving Runtimes%',
       perspective: 'admin',
       section: 'ai-model-serving',
-      model: {
-        group: 'serving.kserve.io',
-        version: 'v1alpha1',
-        kind: 'ServingRuntime',
-      },
+      model: servingRuntimeGvk,
+    },
+  },
+  {
+    type: 'console.navigation/resource-ns',
+    properties: {
+      id: 'ai-model-serving-isvcs',
+      name: '%plugin__console-plugin-template~Inference Services%',
+      perspective: 'admin',
+      section: 'ai-model-serving',
+      model: inferenceServiceGvk,
     },
   },
 ];
