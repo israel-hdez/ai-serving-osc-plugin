@@ -4,6 +4,7 @@ import * as path from 'path';
 import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import { ConsoleRemotePlugin } from '@openshift-console/dynamic-plugin-sdk-webpack';
+import consoleExtensions from './src/console-extensions';
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -74,7 +75,15 @@ const config: Configuration = {
     },
   },
   plugins: [
-    new ConsoleRemotePlugin(),
+    new ConsoleRemotePlugin({
+      extensions: consoleExtensions,
+      pluginMetadata: {
+        name: 'ai-serving-osc-plugin',
+        version: '0.0.1',
+        displayName: 'AI Model Serving Plugin',
+        description: 'AI Model Serving Plugin',
+      },
+    }),
     new CopyWebpackPlugin({
       patterns: [{ from: path.resolve(__dirname, 'locales'), to: 'locales' }],
     }),
