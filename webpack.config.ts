@@ -82,6 +82,9 @@ const config: Configuration = {
         version: '0.0.1',
         displayName: 'AI Model Serving Plugin',
         description: 'AI Model Serving Plugin',
+        exposedModules: {
+          InferenceServiceEventsTab: './components/InferenceServiceEventsTab',
+        },
       },
     }),
     new CopyWebpackPlugin({

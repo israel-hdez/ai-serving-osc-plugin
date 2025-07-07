@@ -62,6 +62,17 @@ const consoleExtensions: EncodedExtension[] = [
       path: 'spec.predictor.model.storageUri',
     },
   },
+  {
+    type: 'console.tab/horizontalNav',
+    properties: {
+      page: {
+        name: 'Events',
+        href: 'events',
+      },
+      model: inferenceServiceGvk,
+      component: { $codeRef: 'InferenceServiceEventsTab' },
+    },
+  },
 ];
 
 export default consoleExtensions;
