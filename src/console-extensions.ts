@@ -73,6 +73,13 @@ const consoleExtensions: EncodedExtension[] = [
       component: { $codeRef: 'InferenceServiceEventsTab' },
     },
   },
+  {
+    type: 'console.resource/create',
+    properties: {
+      model: inferenceServiceGvk,
+      component: { $codeRef: 'CreateInferenceService' },
+    },
+  },
 ];
 
 export default consoleExtensions;
