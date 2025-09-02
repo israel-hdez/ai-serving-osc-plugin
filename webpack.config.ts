@@ -83,7 +83,7 @@ const config: Configuration = {
         displayName: 'AI Model Serving Plugin',
         description: 'AI Model Serving Plugin',
         exposedModules: {
-          InferenceServiceEventsTab: './components/InferenceServiceEventsTab',
+          EventsTab: './components/EventsTab',
           CreateInferenceService: './components/CreateInferenceService',
         },
       },

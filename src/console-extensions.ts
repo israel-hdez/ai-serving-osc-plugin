@@ -12,6 +12,12 @@ const inferenceServiceGvk = {
   kind: 'InferenceService',
 };
 
+const llmInferenceServiceGvk = {
+  group: 'serving.kserve.io',
+  version: 'v1alpha1',
+  kind: 'LLMInferenceService',
+};
+
 const consoleExtensions: EncodedExtension[] = [
   {
     type: 'console.navigation/section',
@@ -43,6 +49,16 @@ const consoleExtensions: EncodedExtension[] = [
     },
   },
   {
+    type: 'console.navigation/resource-ns',
+    properties: {
+      id: 'ai-model-serving-llmsvcs',
+      name: '%plugin__console-plugin-template~LLM Inference Services%',
+      perspective: 'admin',
+      section: 'ai-model-serving',
+      model: llmInferenceServiceGvk,
+    },
+  },
+  {
     type: 'console.resource/details-item',
     properties: {
       model: inferenceServiceGvk,
@@ -70,7 +86,18 @@ const consoleExtensions: EncodedExtension[] = [
         href: 'events',
       },
       model: inferenceServiceGvk,
-      component: { $codeRef: 'InferenceServiceEventsTab' },
+      component: { $codeRef: 'EventsTab' },
+    },
+  },
+  {
+    type: 'console.tab/horizontalNav',
+    properties: {
+      page: {
+        name: 'Events',
+        href: 'events',
+      },
+      model: llmInferenceServiceGvk,
+      component: { $codeRef: 'EventsTab' },
     },
   },
   {
